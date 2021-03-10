@@ -1,0 +1,178 @@
+<nb-card>
+  <div class="row">
+    <div class="offset-2 col-md-8">
+      <div class="col-sm-12" style="text-align: center">
+        <div class="col-sm-12" style="margin-bottom: 20px; margin-top: 20px">
+          <p style="font-size: 40px; font-weight: 400">Request new Account</p>
+        </div>
+        <hr />
+
+
+        <div class="col-sm-12 mt-2" style=" text-align: start" *ngFor="let formvar of key; let i = index">
+          <input
+            nbInput
+            *ngIf="values[i].type == 'String'"
+            fieldSize="medium"
+            [(ngModel)]="values[i].value"
+            placeholder="{{ formvar }}"
+            style="width: 100%; max-width: none !important"
+          />
+
+
+          <input
+          nbInput
+          type="date"
+          *ngIf="values[i].type == 'Date'"
+          fieldSize="medium"
+          [(ngModel)]="values[i].value"
+          placeholder="{{ formvar }}"
+          style="width: 100%; max-width: none !important"
+        />
+
+        <input
+            nbInput
+            type="number"
+            *ngIf="values[i].type == 'Long'"
+            fieldSize="medium"
+            [(ngModel)]="values[i].value"
+            placeholder="{{ formvar }}"
+            style="width: 100%; max-width: none !important"
+          />
+
+          <nb-toggle
+            *ngIf="values[i].type == 'Boolean'"
+            status="primary"
+            [(ngModel)]="values[i].value"
+            style=" text-align: start"
+            >{{ formvar }}</nb-toggle
+          >
+        </div>
+
+
+        <!-- <div class="col-sm-12" style=" margin-bottom: 5px">
+          <input
+            nbInput
+            #name="ngModel"
+            name="name"
+            fieldSize="medium"
+            type="text"
+            placeholder="User Name"
+            [(ngModel)]="model.name"
+            required
+            [attr.aria-invalid]="name.invalid && name.touched ? true : null"
+            style="width: 100%; max-width: none !important"
+          />
+        </div>
+        <div class="col-sm-12" style="margin-bottom: 20px">
+          <p
+            *ngIf="(name.invalid && name.touched) || !validName"
+            class="alert alert-danger"
+            role="alert"
+            style="line-height: 5px; margin-top: 5px"
+          >
+            Name is required!
+          </p>
+        </div>
+
+        <div class="">
+          <div class="col-sm-12" style="margin-bottom: 5px"></div>
+          <div class="col-sm-12">
+            <input
+              nbInput
+              [(ngModel)]="model.email"
+              #email="ngModel"
+              name="email"
+              id="input-email"
+              pattern=".+@.+\..+"
+              placeholder="Email"
+              fieldSize="medium"
+              autofocus
+              required
+              [attr.aria-invalid]="email.invalid && email.touched ? true : null"
+              style="width: 100%; max-width: none !important"
+            />
+          </div>
+        </div>
+        <div class="col-sm-12" style="margin-bottom: 20px">
+          <ng-container *ngIf="(email.invalid && email.touched) || !validmail">
+            <p
+              class="alert alert-danger"
+              role="alert"
+              *ngIf="email.errors?.required"
+              style="line-height: 5px; margin-top: 5px"
+            >
+              Email is required!
+            </p>
+            <p
+              class="alert alert-danger"
+              role="alert"
+              *ngIf="email.errors?.pattern"
+              style="line-height: 5px; margin-top: 5px"
+            >
+              Email should be the real one!
+            </p>
+          </ng-container>
+        </div>
+        <div class="col-sm-12" style="margin-bottom: 30px; text-align: start">
+          <nb-toggle status="primary" [(ngModel)]="model.IsHeadBranch"
+            >Head Office</nb-toggle
+          >
+        </div> -->
+
+        <div class="mt-4">
+          <div class="col-md-12" style="margin-bottom: 20px">
+            <button
+              nbButton
+              class="Button"
+              size="small"
+              status="primary"
+              outline
+              fullWidth
+              (click)="addNewForm()"
+              style="border-radius: 3.25rem"
+            >
+              Send
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nb-card>
+
+<!-- <nb-card *ngIf="finish">
+  <nb-card-body>
+    <div class="row mt-2" *ngFor="let formvar of key; let i = index">
+      <input
+        nbInput
+        *ngIf="values[i].type == 'String'"
+        fieldSize="medium"
+        [(ngModel)]="values[i].value"
+        placeholder="{{ formvar }}"
+      />
+      <nb-toggle
+        *ngIf="values[i].type == 'Boolean'"
+        status="primary"
+        [(ngModel)]="values[i].value"
+        >{{ formvar }}</nb-toggle
+      >
+    </div>
+
+    <div class="row mt-2">
+      <div class="col-md-12" style="margin-bottom: 20px">
+        <button
+          nbButton
+          class="Button"
+          size="small"
+          status="primary"
+          outline
+          fullWidth
+          (click)="addNewForm()"
+          style="border-radius: 3.25rem"
+        >
+          Send
+        </button>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card> -->

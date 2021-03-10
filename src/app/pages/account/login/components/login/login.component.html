@@ -1,0 +1,68 @@
+<nb-card>
+  <nb-card-body>
+    <nb-card class="login">
+      <nb-card-header>
+        <h1 id="title" class="title">Login</h1>
+        <p class="sub-title">Hello! Log in with your user name.</p>
+      </nb-card-header>
+      <nb-card-body>
+        <form (ngSubmit)="login()" #form="ngForm" aria-labelledby="title">
+          <div class="form-control-group">
+            <label class="label" for="input-email">User Name:</label>
+            <input
+              nbInput
+              fullWidth
+              [(ngModel)]="user.username"
+              #username="ngModel"
+              name="username"
+              id="input-email"
+              placeholder="User Name"
+              fieldSize="large"
+              autofocus
+            />
+          </div>
+
+          <div class="form-control-group mt-4 mb-4">
+            <span class="label-with-link">
+              <label class="label" for="input-password">Password:</label>
+            </span>
+            <input
+              nbInput
+              fullWidth
+              [(ngModel)]="user.password"
+              #password="ngModel"
+              name="password"
+              type="password"
+              id="input-password"
+              placeholder="Password"
+              fieldSize="large"
+              [attr.aria-invalid]="
+                password.invalid && password.touched ? true : null
+              "
+            />
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              <button
+                nbButton
+                class="Button"
+                fullWidth
+                status="primary"
+                size="medium"
+              >
+                Log In
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <section *ngIf="authFailed">
+          <div class="alert alert-danger" role="alert">
+            invalid email or password
+          </div>
+        </section>
+      </nb-card-body>
+    </nb-card>
+  </nb-card-body>
+</nb-card>

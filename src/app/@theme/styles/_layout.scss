@@ -1,0 +1,15 @@
+@mixin ngx-layout() {
+  @include media-breakpoint-down(is) {
+    .row {
+      margin-left: -10px;
+      margin-right: -10px;
+    }
+    label{
+    
+      font-size: 0.8125rem !important;
+      font-weight: 600 !important;
+      line-height: 1.5rem !important;
+      padding: 0.75rem 1rem !important;
+  }
+  }
+}

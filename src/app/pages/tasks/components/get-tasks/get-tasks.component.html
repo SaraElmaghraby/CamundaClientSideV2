@@ -1,0 +1,84 @@
+<nb-card>
+  <nb-card-header class="alert alert-primary" role="alert"
+    >My Tasks</nb-card-header
+  >
+  <nb-card-body>
+    <nb-card>
+      <nb-card-body *ngIf="finishLoading">
+        <div class="row">
+          <div class="col-md-3">
+            <label class="head">Name</label>
+          </div>
+
+          <div class="col-md-3">
+            <label class="head">Created Date</label>
+          </div>
+        </div>
+      </nb-card-body>
+      <nb-card-body *ngFor="let task of model">
+        <div class="row">
+          <div class="col-md-2">
+            <label class="data">{{ task.name }}</label>
+          </div>
+
+          <div class="col-md-2">
+            <label class="data">{{ task.created | date }}</label>
+          </div>
+          <div class="col-md-2">
+            <button
+              nbButton
+              class="Button"
+              size="small"
+              status="primary"
+              outline
+              (click)="detail(task.id, task.name)"
+            >
+              <nb-icon icon="code-outline"></nb-icon>
+              Detail
+            </button>
+          </div>
+          <div class="col-md-2">
+            <button
+              nbButton
+              class="Button"
+              outline
+              size="small"
+              status="warning"
+              (click)="Unclaim(task.id)"
+            >
+              <nb-icon icon="checkmark-outline"></nb-icon>
+              Unclaim
+            </button>
+          </div>
+          <div class="col-md-2">
+            <button
+              nbButton
+              class="Button"
+              outline
+              size="small"
+              status="success"
+              (click)="accept(task.id)"
+            >
+              <nb-icon icon="checkmark-outline"></nb-icon>
+              Accept
+            </button>
+          </div>
+
+          <div class="col-md-2">
+            <button
+              nbButton
+              outline
+              class="Button"
+              size="small"
+              status="danger"
+              (click)="reject(task.id, task.processInstanceId)"
+            >
+              <nb-icon icon="alert-triangle-outline"></nb-icon>
+              Reject
+            </button>
+          </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </nb-card-body>
+</nb-card>

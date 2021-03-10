@@ -1,0 +1,51 @@
+<nb-card style="width: 150%;">
+  <nb-card-header>
+    Assign User to this task
+  </nb-card-header>
+  <nb-card-body>
+
+<div class="row">
+  <div class="col-md-4">Assign Type</div>
+  <div class="col-md-4">
+
+    <nb-select [(ngModel)]="assignType" (ngModelChange)="assignSelect()">
+      <nb-option value="1">User</nb-option>
+      <nb-option value="2">Group</nb-option>
+
+    </nb-select>
+  </div>
+</div>
+
+    <div class="row mt-2" *ngIf="userType">
+      <div class="col-md-4">User Name</div>
+      <div class="col-md-8">
+        <nb-select fullWidth [(ngModel)]="userId">
+          <nb-option *ngFor="let user of users" [value]="user.id">
+            {{user.firstName}} {{user.lastName}}
+
+          </nb-option>
+        </nb-select>
+      </div>
+    </div>
+
+
+    <div class="row mt-2" *ngIf="groupType">
+      <div class="col-md-4">Group Name</div>
+      <div class="col-md-8">
+        <nb-select fullWidth [(ngModel)]="userId">
+          <nb-option *ngFor="let user of users" [value]="user.id">
+            {{user.name}}
+
+          </nb-option>
+        </nb-select>
+      </div>
+    </div>
+
+    <div class="row mt-4 mb-4">
+      <div class="col-md-4">
+        <button nbButton size="small" status="success" outline (click)="reject()">Save</button>
+
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

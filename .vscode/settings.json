@@ -1,0 +1,9 @@
+{
+    "typescript.tsdk": "./node_modules/typescript/lib",
+    "tslint.enable": false,
+    "appService.deploySubpath": "dist",
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ]
+}
