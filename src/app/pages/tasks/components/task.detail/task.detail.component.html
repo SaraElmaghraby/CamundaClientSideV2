@@ -1,0 +1,9 @@
+<nb-card size="small" style="width: 200%;height: auto;">
+  <nb-card-header>{{ name }}</nb-card-header>
+  <nb-card-body>
+    <div class="row mt-2" *ngFor="let key of key; let i = index">
+      <div class="col-md-4 head" style="text-transform: capitalize;">{{ key }}</div>
+      <div class="col-md-4">{{ values[i].value }}</div>
+    </div>
+  </nb-card-body>
+</nb-card>
